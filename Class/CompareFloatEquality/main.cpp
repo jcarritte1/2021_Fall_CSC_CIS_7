@@ -23,27 +23,39 @@ int main(int argc, char** argv){
     //Set Random Number Seed Here
     
     //Declare Variables - Known and Unknown, units, range, description
-    float x,y,epsilon;
+    float L,a8,a7,epsilon;
     bool equal;
+    int places=7;
+    
     
     //Initialize Variables
-    x=3.2e6f;//3.2 million
-    y=3.2000003e6f;//
-    epsilon=pow(10,log10(x)-7);//Float within 7 significant digits
+    L=3.2e6f;//3.2 million
+    a8=3.2000003e6f;//
+    a7=3.200003e6f;//
+    epsilon=pow(10,log10(L)-places);//Float within 7 significant digits
     cout<<fixed<<setprecision(6)<<showpoint;
-    cout<<"x = "<<"10^"<<log10(x)<<endl;
-    cout<<"y = "<<"10^"<<log10(y)<<endl;
 
-    
     //Map inputs to outputs -> i.e. process the inputs
-    //equal=(-epsilon < x-y) && (x-y < epsilon);
-    equal=abs(x-y)<epsilon;
+    //equal=(-epsilon < a8-L) && (a8-L < epsilon);
+    equal=abs(a8-L)<epsilon;
     
     //Display the outputs
     cout<<fixed<<setprecision(2)<<showpoint;
-    cout<<"x="<<x<<endl;
-    cout<<"y="<<y<<endl;
-    cout<<(equal?"x==y":"x!=y")<<endl;
+    cout<<"Are these equivalent to "<<places<<" decimal places?"<<endl;
+    cout<<"L="<<L<<endl;
+    cout<<"a8="<<a8<<endl;
+    cout<<(equal?"Yes -> L==a8":"No -> L!=a8")<<endl;
+    cout<<endl;
+    
+    //Map inputs to outputs -> i.e. process the inputs
+    //equal=(-epsilon < a7-L) && (a7-L < epsilon);
+    equal=abs(a7-L)<epsilon;
+    
+    //Display the outputs
+    cout<<"Are these equivalent to "<<places<<" decimal places?"<<endl;
+    cout<<"L="<<L<<endl;
+    cout<<"a7="<<a7<<endl;
+    cout<<(equal?"Yes -> L==a7":"No -> L!=a7")<<endl;
     
     //Clean up - File closing, memory deallocation, etc....
 
