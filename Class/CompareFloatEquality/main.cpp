@@ -23,21 +23,19 @@ int main(int argc, char** argv){
     //Set Random Number Seed Here
     
     //Declare Variables - Known and Unknown, units, range, description
-    float L,a8,a7,epsilon;
-    bool equal;
-    int places=7;
-    
+    float L,a8,a7,epsilon;//Universal, Existential, Conditional variables
+    bool equal;           //Test for equality
+    int places=7;         //Number of significant digits
     
     //Initialize Variables
-    L=3.2e6f;//3.2 million
-    a8=3.2000003e6f;//
-    a7=3.200003e6f;//
+    L=3.2e6f;       //3.2 million
+    a8=3.2000003e6f;//Close to 3.2 million 8 SD
+    a7=3.200003e6f; //Close to 3.2 million 7 SD
     epsilon=pow(10,log10(L)-places);//Float within 7 significant digits
-    cout<<fixed<<setprecision(6)<<showpoint;
 
     //Map inputs to outputs -> i.e. process the inputs
-    //equal=(-epsilon < a8-L) && (a8-L < epsilon);
-    equal=abs(a8-L)<epsilon;
+    equal=(-epsilon < a8-L) && (a8-L < epsilon);
+    //equal=abs(a8-L)<epsilon;
     
     //Display the outputs
     cout<<fixed<<setprecision(2)<<showpoint;
